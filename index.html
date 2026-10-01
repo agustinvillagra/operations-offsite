@@ -39,7 +39,7 @@ a{color:inherit}
 .topbar{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:28px 0}
 .topbar img{height:44px;width:auto;display:block}
 .tag{font-family:"Fira Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.3);padding:7px 12px;border-radius:999px}
-.hero-grid{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding-bottom:64px}
+.hero-grid{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);align-items:center;gap:40px;padding-bottom:64px}
 .kicker{font-family:"Fira Mono",monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:22px;min-height:1.2em}
 h1{font-weight:600;font-size:clamp(40px,6vw,76px);line-height:1.02;letter-spacing:-.02em}
 h1 .light{font-weight:300;display:block;opacity:.9}
@@ -50,18 +50,19 @@ h1 .light{font-weight:300;display:block;opacity:.9}
 .facts{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px}
 .fact{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.92)}
 .fact svg{flex:none;opacity:.85}
-.ctas{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;position:relative}
-.btn{font:inherit;font-size:16px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;text-decoration:none;transition:transform .2s ease,background .2s ease,box-shadow .2s ease;border:1.5px solid transparent}
+.ctas{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px;position:relative}
+.btn{font:inherit;font-size:15.5px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:10px;padding:13px 18px;white-space:nowrap;border-radius:999px;text-decoration:none;transition:transform .2s ease,background .2s ease,box-shadow .2s ease;border:1.5px solid transparent}
 .btn:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
 .btn-primary{background:var(--white);color:var(--blue);box-shadow:0 10px 30px rgba(0,10,60,.35)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,10,60,.45)}
-.cal-hint{flex-basis:100%;font-size:13.5px;color:rgba(255,255,255,.7);margin-top:2px}
+.btn-soon{color:rgba(255,255,255,.55);border-color:rgba(255,255,255,.25);border-style:dashed;cursor:not-allowed;user-select:none}
+.btn-soon .soon{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,174,239,.18);color:#7FD6F7;padding:4px 8px;border-radius:999px}
 .btn-ghost{color:var(--white);border-color:rgba(255,255,255,.55);background:transparent}
 .btn-ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
 
 /* compass */
 .compass-box{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.compass{width:min(440px,80vw);aspect-ratio:1;position:relative}
+.compass{width:min(420px,100%);aspect-ratio:1;position:relative}
 .compass svg{width:100%;height:100%;overflow:visible}
 .js .dial{opacity:0;transition:opacity 1.2s ease .3s}
 .js .ready .dial{opacity:1}
@@ -142,6 +143,20 @@ h2{font-size:clamp(30px,3.6vw,44px);color:var(--blue);font-weight:600;letter-spa
 .details .prep{font-style:italic;color:var(--muted);font-size:14px;margin-top:8px}
 .foot-note{margin-top:22px;font-size:13.5px;color:var(--muted)}
 
+/* ---------- TOPICS ---------- */
+.topics{padding:96px 0 80px;background:var(--white)}
+.topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.day-card{background:var(--shade);border:1px solid #DCE3F3;border-radius:16px;padding:26px 24px 22px;animation:rowin .5s ease both}
+.day-card:nth-child(2){animation-delay:.08s}.day-card:nth-child(3){animation-delay:.16s}
+.day-card .d{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.day-card .date{display:block;font-size:28px;font-weight:600;color:var(--blue);margin-top:6px;line-height:1.1}
+.day-card .wd{display:block;font-size:14.5px;color:var(--muted);margin-top:2px}
+.day-card .theme{margin-top:16px;padding-top:14px;border-top:1px solid #DCE3F3;font-size:15px;font-weight:600;color:var(--blue-mid);line-height:1.4}
+.day-card ol{list-style:none;margin-top:14px;counter-reset:t}
+.day-card li{counter-increment:t;position:relative;padding:10px 0 10px 34px;border-top:1px solid #E6EBF6;font-size:15px;line-height:1.4;color:var(--ink)}
+.day-card li:first-child{border-top:none}
+.day-card li::before{content:counter(t,decimal-leading-zero);position:absolute;left:0;top:11px;font-family:"Fira Mono",monospace;font-size:12px;color:var(--cyan);font-weight:500}
+
 /* ---------- FOOTER ---------- */
 footer{background:var(--blue);color:rgba(255,255,255,.85);padding:40px 0;position:relative;overflow:hidden}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
@@ -155,6 +170,8 @@ footer p{font-size:14px;line-height:1.6;text-align:right}
   .coords{margin-top:8px;font-size:12px}
   .topbar{padding:20px 0 6px}
   .tabs{grid-template-columns:1fr}
+  .topic-grid{grid-template-columns:1fr}
+  .ctas .btn{width:100%;justify-content:center}
   .tab .t{display:none}
   .row{grid-template-columns:96px 1fr;gap:10px}
   .row .time{font-size:12.5px;padding-left:8px}
@@ -207,15 +224,15 @@ footer p{font-size:14px;line-height:1.6;text-align:right}
       <p class="tagline"><span id="type">Aligning our operating model, accelerating innovation and delivering together.</span><span class="caret" aria-hidden="true"></span></p>
       <div class="facts">
         <span class="fact"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>November 10–12, 2026</span>
-        <span class="fact"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Vinci Compass Offices, Rua Bartolomeu Mitre · Rio de Janeiro</span>
+        <span class="fact"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Av. Bartolomeu Mitre, 336, Edifício BM 336, Leblon, Rio de Janeiro</span>
       </div>
       <div class="ctas">
-        <a class="btn btn-primary" id="calBtn" href="https://outlook.office.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&subject=Vinci%20Compass%20First%20Operations%20Offsite&startdt=2026-11-10T08%3A30%3A00-03%3A00&enddt=2026-11-12T17%3A30%3A00-03%3A00&location=Vinci%20Compass%20Offices%2C%20Rua%20Bartolomeu%20Mitre%2C%20Rio%20de%20Janeiro&body=Vinci%20Compass%20First%20Operations%20Offsite%20%E2%80%94%20Rio%20de%20Janeiro%2C%20November%2010%E2%80%9312%2C%202026.%0ADaily%20sessions%20from%2008%3A30%20to%2017%3A30%20%28Rio%20time%29%2C%20followed%20by%20group%20dinners%20in%20the%20evening." target="_blank" rel="noopener">
+        <a class="btn btn-primary" id="calBtn" href="https://outlook.office.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&subject=Vinci%20Compass%20First%20Operations%20Offsite&startdt=2026-11-10T08%3A30%3A00-03%3A00&enddt=2026-11-12T17%3A30%3A00-03%3A00&location=Av.%20Bartolomeu%20Mitre%2C%20336%2C%20Edif%C3%ADcio%20BM%20336%2C%20Leblon%2C%20Rio%20de%20Janeiro&body=Vinci%20Compass%20First%20Operations%20Offsite%20%E2%80%94%20Rio%20de%20Janeiro%2C%20November%2010%E2%80%9312%2C%202026.%0ADaily%20sessions%20from%2008%3A30%20to%2017%3A30%20%28Rio%20time%29%2C%20followed%20by%20group%20dinners%20in%20the%20evening." target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M12 13v5M9.5 15.5h5"/></svg>
           Add to my Outlook calendar
         </a>
-        <a class="btn btn-ghost" href="#agenda">View agenda</a>
-        <p class="cal-hint">Opens your Vinci Compass Outlook so the offsite shows up in your Outlook and Teams calendar.</p>
+        <a class="btn btn-ghost" href="#topics">View topics</a>
+        <span class="btn btn-soon" aria-disabled="true" title="The detailed agenda will be published soon">View agenda <span class="soon">Coming soon</span></span>
       </div>
     </div>
 
@@ -250,25 +267,20 @@ footer p{font-size:14px;line-height:1.6;text-align:right}
       <p class="coords" id="coords">22.9068° S · 43.1729° W<br><b>RIO DE JANEIRO</b></p>
     </div>
   </div>
-  <a class="scroll-cue" href="#agenda">Agenda<span></span></a>
+  <a class="scroll-cue" href="#topics">Topics<span></span></a>
 </header>
 
-<main class="agenda" id="agenda">
+<main class="topics" id="topics">
   <div class="wrap">
     <div class="sec-head">
       <div>
         <p class="eyebrow">Three days · One team</p>
-        <h2>Agenda</h2>
-        <p class="sec-sub">Tap any session to see what we will cover.</p>
+        <h2>Topics</h2>
+        <p class="sec-sub">What we will cover each day.</p>
       </div>
-      <a class="btn btn-outline" href="Vinci-Compass-Operations-Offsite-Agenda.pdf" download="Vinci-Compass-Operations-Offsite-Agenda.pdf" data-dl="Vinci-Compass-Operations-Offsite-Agenda.pdf" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
-        Download PDF
-      </a>
     </div>
-    <div class="tabs" role="tablist" id="tabs"><button class="tab" role="tab" id="tab1" aria-controls="day1" aria-selected="true"><span class="d">Day 1</span><span class="w">Tuesday, November 10</span><span class="t">Strategic Alignment &amp; Control Framework</span></button><button class="tab" role="tab" id="tab2" aria-controls="day2" aria-selected="false"><span class="d">Day 2</span><span class="w">Wednesday, November 11</span><span class="t">Technology, Innovation &amp; Local Execution</span></button><button class="tab" role="tab" id="tab3" aria-controls="day3" aria-selected="false"><span class="d">Day 3</span><span class="w">Thursday, November 12</span><span class="t">Standardization, Commitment &amp; Execution</span></button></div>
-    <section class="day-panel" id="day1" role="tabpanel" aria-labelledby="tab1"><div class="day-head"><div><h3>Day 1 · Tuesday, November 10, 2026</h3><p>Strategic Alignment &amp; Control Framework</p></div><button class="toggle-all" type="button">Expand all</button></div><ul class="list"><li class="row break"><div class="time">08:30–09:00</div><div class="body">Office Catch-Up Time</div></li><li class="row"><div class="time">09:00–09:30</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s1-1"><span><span class="title">Welcome and Offsite Objectives</span><span class="who">Matias</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s1-1"><div><ul><li>Set the objectives and expected outcomes for the three-day offsite.</li><li>Confirm the working principles, participation expectations and decision-making approach.</li></ul></div></div></div></li><li class="row"><div class="time">09:30–10:30</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s1-2"><span><span class="title">Business Update and Strategy</span><span class="who">Bruno</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s1-2"><div><ul><li>Review business performance, strategic priorities and growth agenda.</li><li>Discuss implications for Operations and the support required from the team.</li></ul></div></div></div></li><li class="row break"><div class="time">10:30–11:00</div><div class="body">Coffee Break</div></li><li class="row"><div class="time">11:00–12:00</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s1-4"><span><span class="title">Global Operations Update: KPIs and Medium-/Long-Term Objectives</span><span class="who">Matias</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s1-4"><div><ul><li>Review global operating performance, key KPIs, achievements and current challenges.</li><li>Present the target operating model and priorities for the next two to three years.</li></ul></div></div></div></li><li class="row break"><div class="time">12:00–13:00</div><div class="body">Working Lunch at Vinci Compass Offices</div></li><li class="row"><div class="time">13:00–14:00</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s1-6"><span><span class="title">Firm Technology Strategy</span><span class="who">Alexandre</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s1-6"><div><ul><li>Present the firm’s technology vision, strategic platforms and investment priorities.</li><li>Clarify the role of Operations in defining requirements, adoption and value realization.</li></ul></div></div></div></li><li class="row break"><div class="time">14:00–14:15</div><div class="body">Coffee Break</div></li><li class="row"><div class="time">14:15–15:00</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s1-8"><span><span class="title">SOX Implementation Update</span><span class="who">Arthur</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s1-8"><div><ul><li>Review implementation status, milestones, control gaps and upcoming deliverables.</li><li>Confirm expectations and required contributions from local Operations teams.</li></ul></div></div></div></li><li class="row"><div class="time">15:00–16:30</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s1-9"><span><span class="title">Minimum Controls for External Administrators Workshop</span><span class="who">Maria Isabel</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s1-9"><div><ul><li>Discuss the proposed minimum control framework, oversight model and escalation criteria.</li><li>Identify key decisions required for consistent implementation across jurisdictions.</li></ul></div></div></div></li><li class="row"><div class="time">16:30–17:00</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s1-10"><span><span class="title">Day-One Discussion and Key Takeaways</span><span class="who">Matias</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s1-10"><div><ul><li>Capture key decisions, open questions and cross-country dependencies.</li><li>Confirm preparation required for the following sessions.</li></ul></div></div></div></li><li class="row break"><div class="time">17:00–17:30</div><div class="body">Office Catch-Up Time</div></li><li class="row break evening"><div class="time">Evening</div><div class="body">Group Dinner <span class="who">· Venue: TBD</span></div></li></ul></section><section class="day-panel" id="day2" role="tabpanel" aria-labelledby="tab2" hidden><div class="day-head"><div><h3>Day 2 · Wednesday, November 11, 2026</h3><p>Technology, Innovation &amp; Local Execution</p></div><button class="toggle-all" type="button">Expand all</button></div><ul class="list"><li class="row break"><div class="time">08:30–09:00</div><div class="body">Office Catch-Up Time</div></li><li class="row"><div class="time">09:00–09:15</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s2-1"><span><span class="title">Day-One Recap</span><span class="who">Matias</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s2-1"><div><ul><li>Review key decisions and unresolved questions from Day One.</li><li>Confirm the objectives for the day.</li></ul></div></div></div></li><li class="row"><div class="time">09:15–10:30</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s2-2"><span><span class="title">Business-Driven IT Governance</span><span class="who">Victor and Pablo</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s2-2"><div><ul><li>Present the decision-making model for business-led technology initiatives.</li><li>Discuss prioritization, accountability, delivery governance and resource allocation.</li></ul></div></div></div></li><li class="row break"><div class="time">10:30–10:45</div><div class="body">Coffee Break</div></li><li class="row"><div class="time">10:45–12:00</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s2-4"><span><span class="title">Operational Innovation and AI</span><span class="who">TBD</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s2-4"><div><ul><li>Review current and potential AI use cases across operational processes.</li><li>Define how the firm will identify, test, scale and govern operational innovation.</li></ul></div></div></div></li><li class="row break"><div class="time">12:00–13:00</div><div class="body">Working Lunch at Vinci Compass Offices</div></li><li class="row"><div class="time">13:00–13:45</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s2-6"><span><span class="title">Local Operations Update and 2027 Goals: Chile</span><span class="who">Chile Local Team</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s2-6"><div><ul><li>Review 2026 performance, major operational risks and main improvement initiatives.</li><li>Present 2027 objectives, required investments and dependencies on other teams.</li></ul><p class="prep">Suggested preparation leads: Valentina, Phillip and Victor</p></div></div></div></li><li class="row"><div class="time">13:45–15:15</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s2-7"><span><span class="title">Local Operations Update and 2027 Goals: Brazil</span><span class="who">Brazil Local Team</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s2-7"><div><ul><li>Review 2026 performance, major operational risks and main improvement initiatives.</li><li>Present 2027 objectives, required investments and dependencies on other teams.</li></ul><p class="prep">Suggested preparation leads: Jessica, Mariana and Pablo</p></div></div></div></li><li class="row break"><div class="time">15:15–15:30</div><div class="body">Coffee Break</div></li><li class="row"><div class="time">15:30–17:00</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s2-9"><span><span class="title">Team-Building Activity</span><span class="who">Matias / Facilitator TBD</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s2-9"><div><ul><li>Collaborative activity focused on trust, communication and cross-country cooperation.</li><li>Reflect on how the leadership team can work more effectively as one Operations organization.</li></ul></div></div></div></li><li class="row break"><div class="time">17:00–17:30</div><div class="body">Office Catch-Up Time</div></li><li class="row break evening"><div class="time">Evening</div><div class="body">Group Dinner <span class="who">· Venue: TBD</span></div></li></ul></section><section class="day-panel" id="day3" role="tabpanel" aria-labelledby="tab3" hidden><div class="day-head"><div><h3>Day 3 · Thursday, November 12, 2026</h3><p>Standardization, Commitment &amp; Execution</p></div><button class="toggle-all" type="button">Expand all</button></div><ul class="list"><li class="row break"><div class="time">08:30–09:00</div><div class="body">Office Catch-Up Time</div></li><li class="row"><div class="time">09:00–09:15</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s3-1"><span><span class="title">Day-Two Recap</span><span class="who">Matias</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s3-1"><div><ul><li>Review key conclusions from the technology, innovation and local updates.</li><li>Confirm objectives for the final day.</li></ul></div></div></div></li><li class="row"><div class="time">09:15–10:15</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s3-2"><span><span class="title">Operational Process Standardization and Excellence</span><span class="who">TBD / All Participants</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s3-2"><div><ul><li>Identify processes that should be standardized globally versus retained locally.</li><li>Define minimum standards for process documentation, controls, service levels and KPIs.</li></ul></div></div></div></li><li class="row break"><div class="time">10:15–10:30</div><div class="body">Coffee Break</div></li><li class="row"><div class="time">10:30–11:15</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s3-4"><span><span class="title">Local Operations Update and 2027 Goals: Mexico</span><span class="who">Mexico Local Team</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s3-4"><div><ul><li>Review 2026 performance, major operational risks and main improvement initiatives.</li><li>Present 2027 objectives, required investments and dependencies on other teams.</li></ul><p class="prep">Suggested preparation lead: Fernando</p></div></div></div></li><li class="row"><div class="time">11:15–12:00</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s3-5"><span><span class="title">Local Operations Update and 2027 Goals: United States</span><span class="who">United States Local Team</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s3-5"><div><ul><li>Review 2026 performance, major operational risks and main improvement initiatives.</li><li>Present 2027 objectives, required investments and dependencies on other teams.</li></ul><p class="prep">Suggested preparation lead: Gerry</p></div></div></div></li><li class="row break"><div class="time">12:00–13:00</div><div class="body">Working Lunch at Vinci Compass Offices</div></li><li class="row"><div class="time">13:00–14:00</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s3-7"><span><span class="title">Local Operations Update and 2027 Goals: Argentina</span><span class="who">Argentina Local Team</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s3-7"><div><ul><li>Review 2026 performance, major operational risks and main improvement initiatives.</li><li>Present 2027 objectives, required investments and dependencies on other teams.</li></ul><p class="prep">Suggested preparation lead: Micaela</p></div></div></div></li><li class="row break"><div class="time">14:00–14:15</div><div class="body">Coffee Break</div></li><li class="row"><div class="time">14:15–15:45</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s3-9"><span><span class="title">2027 Priorities, Cross-Country Dependencies and Action Plan</span><span class="who">Matias</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s3-9"><div><ul><li>Consolidate the key operational priorities and decisions emerging from the offsite.</li><li>Confirm owners, milestones, cross-country dependencies and follow-up governance.</li></ul></div></div></div></li><li class="row"><div class="time">15:45–16:30</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s3-10"><span><span class="title">Closing Session</span><span class="who">Matias</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s3-10"><div><ul><li>Confirm commitments, next steps and follow-up cadence.</li><li>Summarize the main takeaways and close the offsite.</li></ul></div></div></div></li><li class="row"><div class="time">16:30–17:00</div><div><button class="sess" type="button" aria-expanded="false" aria-controls="s3-11"><span><span class="title">Final Reflections</span><span class="who">All Participants</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="details" id="s3-11"><div><ul><li>Give each participant time to share a final reflection or commitment.</li><li>Reinforce the shared operating model and team objectives.</li></ul></div></div></div></li><li class="row break"><div class="time">17:00–17:30</div><div class="body">Office Catch-Up Time</div></li><li class="row break evening"><div class="time">Evening</div><div class="body">Closing Dinner <span class="who">· Venue: TBD</span></div></li></ul></section>
-    <p class="foot-note">All times are Rio de Janeiro local time (BRT, UTC−3).</p>
+    <div class="topic-grid"><article class="day-card" id="day1"><span class="d">Day 1</span><span class="date">November 10</span><span class="wd">Tuesday</span><p class="theme">Strategic Alignment &amp; Control Framework</p><ol><li>Welcome and Offsite Objectives</li><li>Business Update and Strategy</li><li>Global Operations Update: KPIs and Medium-/Long-Term Objectives</li><li>Firm Technology Strategy</li><li>SOX Implementation Update</li><li>Minimum Controls for External Administrators Workshop</li><li>Day-One Discussion and Key Takeaways</li></ol></article><article class="day-card" id="day2"><span class="d">Day 2</span><span class="date">November 11</span><span class="wd">Wednesday</span><p class="theme">Technology, Innovation &amp; Local Execution</p><ol><li>Day-One Recap</li><li>Business-Driven IT Governance</li><li>Operational Innovation and AI</li><li>Local Operations Update and 2027 Goals: Chile</li><li>Local Operations Update and 2027 Goals: Brazil</li><li>Team-Building Activity</li></ol></article><article class="day-card" id="day3"><span class="d">Day 3</span><span class="date">November 12</span><span class="wd">Thursday</span><p class="theme">Standardization, Commitment &amp; Execution</p><ol><li>Day-Two Recap</li><li>Operational Process Standardization and Excellence</li><li>Local Operations Update and 2027 Goals: Mexico</li><li>Local Operations Update and 2027 Goals: United States</li><li>Local Operations Update and 2027 Goals: Argentina</li><li>2027 Priorities, Cross-Country Dependencies and Action Plan</li><li>Closing Session</li><li>Final Reflections</li></ol></article></div>
+    <p class="foot-note">The detailed agenda with times and speakers will be shared soon.</p>
   </div>
 </main>
 
@@ -286,52 +298,10 @@ footer p{font-size:14px;line-height:1.6;text-align:right}
   const a = document.getElementById('calBtn');
   if (location.protocol.startsWith('http')) {
     const u = new URL(a.href);
-    u.searchParams.set('body', u.searchParams.get('body') + '\n\nAgenda: ' + location.origin + location.pathname);
+    u.searchParams.set('body', u.searchParams.get('body') + '\n\nDetails: ' + location.origin + location.pathname);
     a.href = u.toString();
   }
 })();
-
-/* ---------- agenda (enhances the static markup) ---------- */
-(function(){
-  const tabs = [...document.querySelectorAll('#tabs .tab')], panels = [...document.querySelectorAll('.day-panel')];
-  function show(i){
-    tabs.forEach((t,k) => { t.setAttribute('aria-selected', k===i); t.tabIndex = k===i?0:-1; });
-    panels.forEach((p,k) => { p.hidden = k!==i; if(k===i){ p.querySelectorAll('.row').forEach((r,j)=>{ r.style.animation='none'; r.offsetHeight; r.style.animation=''; r.style.animationDelay=(j*35)+'ms'; }); } });
-  }
-  tabs.forEach((t,i) => {
-    t.addEventListener('click', () => show(i));
-    t.addEventListener('keydown', e => {
-      if (e.key==='ArrowRight'||e.key==='ArrowLeft'){ const n=(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length; show(n); tabs[n].focus(); }
-    });
-  });
-  panels.forEach(p => {
-    const sess = [...p.querySelectorAll('.sess')];
-    sess.forEach(s => s.addEventListener('click', () => s.setAttribute('aria-expanded', s.getAttribute('aria-expanded')!=='true')));
-    const ta = p.querySelector('.toggle-all');
-    ta.addEventListener('click', () => {
-      const open = sess.some(s => s.getAttribute('aria-expanded')!=='true');
-      sess.forEach(s => s.setAttribute('aria-expanded', open));
-      ta.textContent = open ? 'Collapse all' : 'Expand all';
-    });
-  });
-  const m = location.hash.match(/^#day([123])$/);
-  show(m ? +m[1]-1 : 0);
-  if (m) document.getElementById('agenda').scrollIntoView();
-})();
-
-/* ---------- downloads: save the file without leaving the page ---------- */
-document.querySelectorAll('a[data-dl]').forEach(a => {
-  a.addEventListener('click', async e => {
-    e.preventDefault();
-    const url = a.getAttribute('href'), name = a.dataset.dl;
-    try {
-      const r = await fetch(url); if (!r.ok) throw 0;
-      const blob = await r.blob(), u = URL.createObjectURL(blob);
-      const t = document.createElement('a'); t.href = u; t.download = name; document.body.appendChild(t); t.click(); t.remove();
-      setTimeout(() => URL.revokeObjectURL(u), 4000);
-    } catch (_) { window.open(url, '_blank', 'noopener'); }
-  });
-});
 
 /* ---------- compass + typing ---------- */
 (function(){
