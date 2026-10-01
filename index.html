@@ -39,7 +39,7 @@ a{color:inherit}
 .topbar{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:28px 0}
 .topbar img{height:44px;width:auto;display:block}
 .tag{font-family:"Fira Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.3);padding:7px 12px;border-radius:999px}
-.hero-grid{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);align-items:center;gap:40px;padding-bottom:64px}
+.hero-grid{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:40px;padding-bottom:64px}
 .kicker{font-family:"Fira Mono",monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:22px;min-height:1.2em}
 h1{font-weight:600;font-size:clamp(40px,6vw,76px);line-height:1.02;letter-spacing:-.02em}
 h1 .light{font-weight:300;display:block;opacity:.9}
@@ -47,22 +47,22 @@ h1 .light{font-weight:300;display:block;opacity:.9}
 .no-js .caret{display:none}
 .caret{display:inline-block;width:2px;height:1.05em;background:var(--cyan);vertical-align:-.15em;margin-left:2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.facts{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px}
+.facts{margin-top:34px;display:flex;flex-direction:column;gap:10px;font-size:15px}
 .fact{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.92)}
 .fact svg{flex:none;opacity:.85}
-.ctas{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px;position:relative}
-.btn{font:inherit;font-size:15.5px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:10px;padding:13px 18px;white-space:nowrap;border-radius:999px;text-decoration:none;transition:transform .2s ease,background .2s ease,box-shadow .2s ease;border:1.5px solid transparent}
+.ctas{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;position:relative}
+.btn{font:inherit;font-size:16px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:10px;padding:15px 24px;white-space:nowrap;border-radius:999px;text-decoration:none;transition:transform .2s ease,background .2s ease,box-shadow .2s ease;border:1.5px solid transparent}
 .btn:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
 .btn-primary{background:var(--white);color:var(--blue);box-shadow:0 10px 30px rgba(0,10,60,.35)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,10,60,.45)}
-.btn-soon{color:rgba(255,255,255,.55);border-color:rgba(255,255,255,.25);border-style:dashed;cursor:not-allowed;user-select:none}
+.btn-soon{flex-basis:100%;max-width:max-content;color:rgba(255,255,255,.55);border-color:rgba(255,255,255,.25);border-style:dashed;cursor:not-allowed;user-select:none}
 .btn-soon .soon{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,174,239,.18);color:#7FD6F7;padding:4px 8px;border-radius:999px}
 .btn-ghost{color:var(--white);border-color:rgba(255,255,255,.55);background:transparent}
 .btn-ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
 
 /* compass */
 .compass-box{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.compass{width:min(420px,100%);aspect-ratio:1;position:relative}
+.compass{width:min(440px,80vw);aspect-ratio:1;position:relative}
 .compass svg{width:100%;height:100%;overflow:visible}
 .js .dial{opacity:0;transition:opacity 1.2s ease .3s}
 .js .ready .dial{opacity:1}
@@ -157,6 +157,11 @@ h2{font-size:clamp(30px,3.6vw,44px);color:var(--blue);font-weight:600;letter-spa
 .day-card li:first-child{border-top:none}
 .day-card li::before{content:counter(t,decimal-leading-zero);position:absolute;left:0;top:11px;font-family:"Fira Mono",monospace;font-size:12px;color:var(--cyan);font-weight:500}
 
+.tlist{list-style:none;counter-reset:t;margin-top:6px}
+.tlist li{counter-increment:t;display:grid;grid-template-columns:64px 1fr;align-items:baseline;gap:8px;padding:22px 8px 22px 4px;border-bottom:1px solid var(--line);font-size:clamp(19px,2vw,24px);font-weight:500;line-height:1.3;color:var(--blue);animation:rowin .45s ease both}
+.tlist li::before{content:counter(t,decimal-leading-zero);font-family:"Fira Mono",monospace;font-size:15px;font-weight:500;color:var(--cyan);letter-spacing:.05em}
+.tlist li:hover{background:var(--shade)}
+
 /* ---------- FOOTER ---------- */
 footer{background:var(--blue);color:rgba(255,255,255,.85);padding:40px 0;position:relative;overflow:hidden}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
@@ -170,7 +175,7 @@ footer p{font-size:14px;line-height:1.6;text-align:right}
   .coords{margin-top:8px;font-size:12px}
   .topbar{padding:20px 0 6px}
   .tabs{grid-template-columns:1fr}
-  .topic-grid{grid-template-columns:1fr}
+  .tlist li{grid-template-columns:44px 1fr;padding:16px 4px}
   .ctas .btn{width:100%;justify-content:center}
   .tab .t{display:none}
   .row{grid-template-columns:96px 1fr;gap:10px}
@@ -279,7 +284,8 @@ footer p{font-size:14px;line-height:1.6;text-align:right}
         <p class="sec-sub">What we will cover each day.</p>
       </div>
     </div>
-    <div class="topic-grid"><article class="day-card" id="day1"><span class="d">Day 1</span><span class="date">November 10</span><span class="wd">Tuesday</span><p class="theme">Strategic Alignment &amp; Control Framework</p><ol><li>Welcome and Offsite Objectives</li><li>Business Update and Strategy</li><li>Global Operations Update: KPIs and Medium-/Long-Term Objectives</li><li>Firm Technology Strategy</li><li>SOX Implementation Update</li><li>Minimum Controls for External Administrators Workshop</li><li>Day-One Discussion and Key Takeaways</li></ol></article><article class="day-card" id="day2"><span class="d">Day 2</span><span class="date">November 11</span><span class="wd">Wednesday</span><p class="theme">Technology, Innovation &amp; Local Execution</p><ol><li>Day-One Recap</li><li>Business-Driven IT Governance</li><li>Operational Innovation and AI</li><li>Local Operations Update and 2027 Goals: Chile</li><li>Local Operations Update and 2027 Goals: Brazil</li><li>Team-Building Activity</li></ol></article><article class="day-card" id="day3"><span class="d">Day 3</span><span class="date">November 12</span><span class="wd">Thursday</span><p class="theme">Standardization, Commitment &amp; Execution</p><ol><li>Day-Two Recap</li><li>Operational Process Standardization and Excellence</li><li>Local Operations Update and 2027 Goals: Mexico</li><li>Local Operations Update and 2027 Goals: United States</li><li>Local Operations Update and 2027 Goals: Argentina</li><li>2027 Priorities, Cross-Country Dependencies and Action Plan</li><li>Closing Session</li><li>Final Reflections</li></ol></article></div>
+    <div class="tabs" role="tablist" id="tabs"><button class="tab" role="tab" id="tab1" aria-controls="day1" aria-selected="true"><span class="d">Day 1</span><span class="w">Tuesday, November 10</span><span class="t">Strategic Alignment &amp; Control Framework</span></button><button class="tab" role="tab" id="tab2" aria-controls="day2" aria-selected="false"><span class="d">Day 2</span><span class="w">Wednesday, November 11</span><span class="t">Technology, Innovation &amp; Local Execution</span></button><button class="tab" role="tab" id="tab3" aria-controls="day3" aria-selected="false"><span class="d">Day 3</span><span class="w">Thursday, November 12</span><span class="t">Standardization, Commitment &amp; Execution</span></button></div>
+    <section class="day-panel" id="day1" role="tabpanel" aria-labelledby="tab1"><div class="day-head"><div><h3>Day 1 · Tuesday, November 10, 2026</h3><p>Strategic Alignment &amp; Control Framework</p></div></div><ol class="tlist"><li>Welcome and Offsite Objectives</li><li>Business Update and Strategy</li><li>Global Operations Update: KPIs and Medium-/Long-Term Objectives</li><li>Firm Technology Strategy</li><li>SOX Implementation Update</li><li>Minimum Controls for External Administrators Workshop</li><li>Day-One Discussion and Key Takeaways</li></ol></section><section class="day-panel" id="day2" role="tabpanel" aria-labelledby="tab2" hidden><div class="day-head"><div><h3>Day 2 · Wednesday, November 11, 2026</h3><p>Technology, Innovation &amp; Local Execution</p></div></div><ol class="tlist"><li>Day-One Recap</li><li>Business-Driven IT Governance</li><li>Operational Innovation and AI</li><li>Local Operations Update and 2027 Goals: Chile</li><li>Local Operations Update and 2027 Goals: Brazil</li><li>Team-Building Activity</li></ol></section><section class="day-panel" id="day3" role="tabpanel" aria-labelledby="tab3" hidden><div class="day-head"><div><h3>Day 3 · Thursday, November 12, 2026</h3><p>Standardization, Commitment &amp; Execution</p></div></div><ol class="tlist"><li>Day-Two Recap</li><li>Operational Process Standardization and Excellence</li><li>Local Operations Update and 2027 Goals: Mexico</li><li>Local Operations Update and 2027 Goals: United States</li><li>Local Operations Update and 2027 Goals: Argentina</li><li>2027 Priorities, Cross-Country Dependencies and Action Plan</li><li>Closing Session</li><li>Final Reflections</li></ol></section>
     <p class="foot-note">The detailed agenda with times and speakers will be shared soon.</p>
   </div>
 </main>
@@ -301,6 +307,20 @@ footer p{font-size:14px;line-height:1.6;text-align:right}
     u.searchParams.set('body', u.searchParams.get('body') + '\n\nDetails: ' + location.origin + location.pathname);
     a.href = u.toString();
   }
+})();
+
+/* ---------- topic tabs ---------- */
+(function(){
+  const tabs = [...document.querySelectorAll('#tabs .tab')], panels = [...document.querySelectorAll('.day-panel')];
+  function show(i){
+    tabs.forEach((t,k) => { t.setAttribute('aria-selected', k===i); t.tabIndex = k===i?0:-1; });
+    panels.forEach((p,k) => { p.hidden = k!==i; if (k===i) p.querySelectorAll('li').forEach((r,j)=>{ r.style.animation='none'; r.offsetHeight; r.style.animation=''; r.style.animationDelay=(j*45)+'ms'; }); });
+  }
+  tabs.forEach((t,i) => {
+    t.addEventListener('click', () => show(i));
+    t.addEventListener('keydown', e => { if (e.key==='ArrowRight'||e.key==='ArrowLeft'){ const n=(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length; show(n); tabs[n].focus(); } });
+  });
+  show(0);
 })();
 
 /* ---------- compass + typing ---------- */
